@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #000;
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+      .light {
+        width: 100px;
+        height: 100px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: light 2s ease-in-out infinite alternate;
+      }
+      @keyframes light {
+        from {
+          box-shadow: 0 0 6px red;
+        }
+        to {
+          box-shadow: 0 0 26px red;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="light"></div>
+    <button id="toggleButton" style="margin-left: 30px">继续或暂停</button>
+    <script>
+      const element = document.querySelector(".light");
+      const toggleButton = document.getElementById("toggleButton");
+      let isAnimationPaused = false;
+
+      toggleButton.addEventListener("click", () => {
+        if (isAnimationPaused) {
+          element.style.animationPlayState = "running"; // 恢复动画
+        } else {
+          element.style.animationPlayState = "paused"; // 暂停动画
+        }
+        isAnimationPaused = !isAnimationPaused;
+      });
+    </script>
+  </body>
+</html>

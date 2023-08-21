@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #000;
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .btn{
+            width: 100px;
+            height: 100px;
+            color: #fff;
+            border-radius: 50%;
+            border: none;
+            background-color: transparent;
+            position: relative;
+            border: 2px solid purple;
+            /* overflow: hidden; */
+        }
+        .btn::before {
+            position: absolute;
+            content: '';
+            width: 0;
+            height: 0;
+            background-color: purple;
+            transition: all  0.3s;
+            z-index: -1;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+        }
+        .btn:hover::before {
+            width: 110%;
+            height: 110%;
+        }
+    </style>
+</head>
+<body>
+    <button class="btn">
+        按钮
+    </button>
+</body>
+</html>
