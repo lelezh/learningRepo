@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 200px;;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img id="img" src="../../../imgs/img (1).jpg" alt="image">
+        <input id="number" type="text">
+        <button id="changeImg">切换图片</button>
+    </div>
+    <script>
+        const channel = new BroadcastChannel('channel');
+        channel.addEventListener('message', event => {
+            const message = event.data;
+            if (message.action === 'update') {
+                document.querySelector('#img').src = `../../../imgs/img (${message.value}).jpg`
+                console.log('Received updated value:', message.value);
+            }
+        });
+        document.querySelector('#changeImg').addEventListener('click', () => {
+            const n = document.querySelector('#number').value
+            document.querySelector('#img').src = `../../../imgs/img (${n}).jpg`
+            channel.postMessage({ action: 'update', value: n });
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+使用BroadcastChannel实现不同页签之间的通信
