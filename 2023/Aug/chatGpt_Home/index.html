@@ -5,16 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        
+        body {
+            background-color: #f3f3f3;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+      .text {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
+      .circle {
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        border-radius: 50%;
+        background: #3399ff;
+        flex-shrink: 0;
+        margin-left: 4px;
+      }
+      .content {
+        font-weight: bold;
+        font-size: 30px;
+        overflow: hidden;
+        color: #3399ff;
+        position: relative;
+        display: inline-block;
+        animation: text-change 1.5s ease-in-out infinite alternate;
+      }
+      @keyframes text-change {
+        0% {
+            width: 0;
+        }
+        40% {
+            width: 100%;
+        }
+      }
     </style>
   </head>
   <body>
+    <img src="./chatgpt.gif" style="width: 600px;" alt="">
     <input type="text" value="ChatGPT" />
-    <div class="text"></div>
+    <div class="text">
+        <span class="content"></span>
+        <span class="circle"></span>
+    </div>
     <script>
       window.onload = () => {
         const str = document.querySelector("input").value;
-        document.querySelector(".text").innerHTML = str;
+        document.querySelector(".content").innerHTML = str;
       };
     </script>
   </body>

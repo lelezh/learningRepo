@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    body {
+      background-color: #f3f3f3;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .text {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      align-items: center;
+    }
+    .content {
+      font-weight: bold;
+      font-size: 30px;
+      color: #3399ff;
+      white-space: nowrap;
+    }
+    .circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #3399ff;
+      margin-left: 4px;
+    }
+  </style>
+</head>
+<body>
+  <img src="./chatgpt.gif" style="width: 600px" alt="" />
+  <input type="text" value="ChatGPT" />
+  <div class="text">
+    <span class="content"></span>
+    <span class="circle"></span>
+  </div>
+  <script>
+    window.onload = () => {
+      const input = document.querySelector("input");
+      
+      const typedText = document.querySelector(".content");
+      let str = input.value;
+      input.addEventListener('blur', (e) => {
+        str = input.value;
+      })
+      let currentChar = 0;
+
+      function typeText() {
+        typedText.textContent = str.slice(0, currentChar);
+        currentChar++;
+
+        if (currentChar <= str.length) {
+          setTimeout(typeText, 100);
+        } else {
+          setTimeout(() => {
+            currentChar = str.length;
+            reverseText();
+          }, 1000);
+        }
+      }
+
+      function reverseText() {
+        typedText.textContent = str.slice(0, currentChar);
+        currentChar--;
+
+        if (currentChar >= 0) {
+          setTimeout(reverseText, 100);
+        } else {
+          setTimeout(() => {
+            currentChar = 0;
+            typeText();
+          }, 1000);
+        }
+      }
+
+      typeText();
+    };
+  </script>
+</body>
+</html>
