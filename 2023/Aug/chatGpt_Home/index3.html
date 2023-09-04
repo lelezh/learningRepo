@@ -34,16 +34,12 @@
         font-size: 30px;
         overflow: hidden;
         color: #3399ff;
-        position: relative;
-        display: inline-block;
-        animation: text-change 1.5s ease-in-out infinite alternate;
+        width: 8ch;;
+        animation: text-change 2s steps(8) infinite alternate;
       }
       @keyframes text-change {
-        0% {
+        from {
             width: 0;
-        }
-        40% {
-            width: 100%;
         }
       }
     </style>
