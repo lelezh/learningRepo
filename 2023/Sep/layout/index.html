@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0
+        }
+        .container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+        }
+        .part:first-of-type {
+            background-color: aqua;
+        }
+        .part:nth-of-type(2) {
+            background-color: #3399ff;
+        }
+        .part:nth-of-type(3) {
+            background-color: #f3f5f4;
+        }
+        .part {
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="part">
+            My name is Zhang Lele. I am 28 years old.
+        </div>
+        <div class="part"></div>
+        <div class="part"></div>
+    </div>
+</body>
+</html>
