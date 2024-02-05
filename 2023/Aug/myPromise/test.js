@@ -1,16 +1,17 @@
-let arr = [
-    {
-        name: 'zll',
-        msg: 'abc'
-    },
-    {
-        name: 'siyi',
-        msg: 's'
-    }
-]
-
-let res = arr.map(it => JSON.stringify(it))
-let res2 = '[' + res + ']'
-console.log(res);
-console.log(res2);
-console.log('[' + res.map(it => it.toString()) + ']');
+const myPromise = require('./index')
+// 测试代码
+const promise = new myPromise((resolve, reject) => {
+    resolve('success')
+})
+promise.then(value => {
+    console.log(1)
+    console.log('resolve', value)
+})
+promise.then(value => {
+    console.log(2)
+    console.log('resolve', value)
+})
+promise.then(value => {
+    console.log(3)
+    console.log('resolve', value)
+})
